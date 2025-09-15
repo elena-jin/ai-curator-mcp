@@ -1,0 +1,35 @@
+# dedalus.yaml
+name: easel-ai-curator
+version: 0.1.0
+description: >
+  Easel: An AI-powered art curator MCP server.
+  Users provide a mood or theme, and the server generates
+  a mini art exhibition with suggested artworks.
+
+entrypoint: server.py  # This is your FastAPI server file
+
+# Optional: author and license
+author: Elena Jin
+license: MIT
+
+# Define the API endpoints (inputs/outputs)
+# This matches your FastAPI /curate endpoint
+endpoints:
+  - path: /curate
+    method: POST
+    description: Generate a curated mini gallery based on theme
+    inputs:
+      theme:
+        type: string
+        description: Mood or theme for the gallery
+    outputs:
+      gallery:
+        type: string
+        description: Curated exhibition description in markdown
+
+# Optional tags/categories for marketplace filtering
+tags:
+  - art
+  - AI
+  - education
+  - MCP
